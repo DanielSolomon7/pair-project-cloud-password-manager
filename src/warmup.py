@@ -1,5 +1,6 @@
 import boto3
 from pprint import pprint
+import os
 
 def warm_up_s3():
     s3 = boto3.client('s3')
@@ -57,7 +58,9 @@ def warm_up_s3():
     pprint(f'Current buckets: {s3.list_buckets()['Buckets']}')
     
    
-
+    ''' Delete files '''
+    os.remove('file1.txt')
+    os.remove('file2.txt')
 
 
 
