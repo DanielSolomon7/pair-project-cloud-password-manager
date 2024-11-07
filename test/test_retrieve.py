@@ -20,13 +20,25 @@ def secrets_manager_client(aws_credentials):
         secrets_manager = boto3.client("secretsmanager")
         yield secrets_manager
 
-class TestList:
+class TestRetrieve:
 
-    def test_function_(self, secrets_manager_client):
-        pass
+    def test_function_takes_a_secret_name_and_sm_client_and_returns_a_string(self, secrets_manager_client):
+        test_client = secrets_manager_client
+        test_secret_name = "name1"
 
-    def test_function_(self, secrets_manager_client):
-        pass
+        assert isinstance(retrieve_secret(test_secret_name, test_client),str)
 
-    def test_function_(self,  secrets_manager_client):
+
+    def test_function_retrieves_a_secret_and_stores_in_a_text_file(self, secrets_manager_client):
+        test_client = secrets_manager_client
+        test_secret_name = "name1"
+        test_client.create_secret(Name=test_secret_name, SecretString='{"username":"user1", "password":"password1"}')
+
+        assert retrieve_secret(test_secret_name, test_client) == f"Secrets stored in local file: {test_secret_name}_secrets.txt"
+
+    def test_function_handles_when_a_secret_name_that_does_not_exist_is_given(self,  secrets_manager_client):
+        test_client = secrets_manager_client
+        test_secret_name = "name1"
+        
+        assert retrieve_secret(test_secret_name, test_client) == f"Secret {test_secret_name} does not exist."
         pass
