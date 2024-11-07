@@ -4,6 +4,7 @@ from moto import mock_aws
 import pytest
 import boto3
 import os
+from pprint import pprint
 
 
 
@@ -30,18 +31,16 @@ class TestList:
     def test_function_lists_all_stored_secrets(self, secrets_manager_client):
         test_client = secrets_manager_client
 
-        response1 = store_secret("user", "password", "i1", test_client)
-        response2 = store_secret("user", "password", "i2", test_client)
-
+        test_client.create_secret(Name="identifier1",
+                                            SecretString='{"username":"user1", "password":"password1"}')
+        test_client.create_secret(Name="identifier2",
+                                            SecretString='{"username":"user2", "password":"password2"}')
         
-        # test_client.create_secret(Name="identifier1",
-        #                                     SecretString='{"username":"user1", "password":"password1"}')
-        # test_client.create_secret(Name="identifier2",
-        #                                     SecretString='{"username":"user2", "password":"password2"}')
-    
         response = list_sm_secrets(test_client)
+        assert response == "2 secret(s) available: ['identifier1', 'identifier2']"
 
-        assert response == "2 secret(s) available: [identifier1, identifier2]"
+    def test_function_handles_when_there_are_no_secrets(self,  secrets_manager_client):
+        test_client = secrets_manager_client
+        response = list_sm_secrets(test_client)
+        assert response == "0 secret(s) available: []"
 
-    # def test_function_returns_error_message(self,  secrets_manager_client):
-    #     pass
