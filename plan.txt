@@ -1,2 +1,6 @@
 Requirements.txt - pytest, boto3, moto
 
+Separate util functions for store, list, retrieve, and delete.
+
+The main password manager file allows users to choose functionality based on user input.
+
