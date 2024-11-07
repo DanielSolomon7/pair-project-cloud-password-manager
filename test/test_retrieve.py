@@ -41,4 +41,3 @@ class TestRetrieve:
         test_secret_name = "name1"
         
         assert retrieve_secret(test_secret_name, test_client) == f"Secret {test_secret_name} does not exist."
-        pass
