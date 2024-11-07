@@ -4,7 +4,7 @@ from pprint import pprint
 
 
 def store_secret(user_id, password, identifier, sm_client):
-    """Takes a user_id, password, idetifier_name, and creates a secret with these credentials.
+    """Takes a user_id, password, identifier_name, and creates a secret with these credentials.
 
         Args:
         user_id: the username for the secret.

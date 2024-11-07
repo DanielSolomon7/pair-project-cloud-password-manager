@@ -16,7 +16,7 @@ def retrieve_secret(secret_name, sm_client):
         A string informing that the secrets have been saved in a txt file or an informative error
         message.
         """
-    
+
     try:
         response = sm_client.get_secret_value(SecretId=secret_name)
         with open(f"{secret_name}_secrets.txt","w", encoding="utf-8") as file:

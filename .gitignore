@@ -1,4 +1,5 @@
 venv
+src/tempCodeRunnerFile.py
 **/.vscode
 **/.pycache
 **/__pycache__

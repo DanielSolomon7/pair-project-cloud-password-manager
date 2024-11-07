@@ -35,7 +35,7 @@ class TestList:
                                             SecretString='{"username":"user1", "password":"password1"}')
         test_client.create_secret(Name="identifier2",
                                             SecretString='{"username":"user2", "password":"password2"}')
-        
+
         response = list_sm_secrets(test_client)
         assert response == "2 secret(s) available: ['identifier1', 'identifier2']"
 

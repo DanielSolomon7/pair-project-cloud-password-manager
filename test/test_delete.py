@@ -44,4 +44,3 @@ class TestDelete:
         test_secret_name = "name1"
         assert delete_secret(test_secret_name, test_client) == f"Secret name invalid - secret {test_secret_name} does not exist."
 
-        

@@ -12,7 +12,7 @@ def list_sm_secrets(sm_client):
         Returns:
         A string informing with the number of secrets and a list of the names.
         """
-    
+
     try:
         response = sm_client.list_secrets()
         secret_names = [secret["Name"] for secret in response["SecretList"]]

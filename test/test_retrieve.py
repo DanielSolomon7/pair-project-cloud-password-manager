@@ -39,5 +39,5 @@ class TestRetrieve:
     def test_function_handles_when_a_secret_name_that_does_not_exist_is_given(self,  secrets_manager_client):
         test_client = secrets_manager_client
         test_secret_name = "name1"
-        
+
         assert retrieve_secret(test_secret_name, test_client) == f"Secret {test_secret_name} does not exist."

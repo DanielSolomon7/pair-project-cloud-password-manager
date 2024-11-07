@@ -5,7 +5,7 @@ from pprint import pprint
 
 
 def delete_secret(secret_name, sm_client):
-    
+
     """Looks for the given secret name, and if exists, deletes the secret.
 
         Args:

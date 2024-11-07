@@ -12,7 +12,7 @@ def warm_up_s3():
                      CreateBucketConfiguration={
                          'LocationConstraint': 'eu-west-2'
                      })
-    
+
     ''' Make file1 '''
     with open('file1.txt', 'w', encoding='utf-8') as file:
         file.write("Text of file1!")
@@ -29,7 +29,7 @@ def warm_up_s3():
     response = s3.list_objects_v2(Bucket=bucket_name).get("Contents")
     bucket_files = [file['Key'] for file in response]
     print(f"Files in s3 bucket: {bucket_files}", end="\n\n")
-    
+
     ''' Prints content of file1 to terminal '''
     file_1 = response[0]["Key"]
     file_2 = response[1]["Key"]
@@ -56,8 +56,8 @@ def warm_up_s3():
 
     ''' Show that there are no buckets '''
     pprint(f'Current buckets: {s3.list_buckets()['Buckets']}')
-    
-   
+
+
     ''' Delete files '''
     os.remove('file1.txt')
     os.remove('file2.txt')
