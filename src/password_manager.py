@@ -13,6 +13,13 @@ def password_manager_func():
     sm_client = boto3.client("secretsmanager")
     running = True
     while running:
+        # print("	 __________	")
+        # print("	|   ____    \	")
+        # print("	|   |___|   | 	")
+        # print("	|    _______/	")
+        # print("	|   |		")
+        # print("	|   |		")
+        # print("	|___|		")
         user_choice = input("\nPlease specify [e]ntry, [r]etrieval, [d]eletion, [l]isting or e[x]it:")
         if user_choice == "e":
             user_decision_identifier = input("\nPlease enter secret identifier: ")
