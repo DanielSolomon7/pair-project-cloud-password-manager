@@ -13,11 +13,13 @@ def aws_credentials():
     os.environ["AWS_SESSION_TOKEN"] = 'test'
     os.environ["AWS_DEFAULT_REGION"] = "eu-west-2"
 
+
 @pytest.fixture()
 def secrets_manager_client(aws_credentials):
     with mock_aws():
         secrets_manager = boto3.client("secretsmanager")
         yield secrets_manager
+
 
 class TestRetrieve:
 
@@ -26,7 +28,6 @@ class TestRetrieve:
         test_secret_name = "name1"
 
         assert isinstance(retrieve_secret(test_secret_name, test_client),str)
-
 
     def test_function_retrieves_a_secret_and_stores_in_a_text_file(self, secrets_manager_client):
         test_client = secrets_manager_client
