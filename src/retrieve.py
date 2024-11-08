@@ -27,3 +27,6 @@ def retrieve_secret(secret_name, sm_client):
 
     except ClientError:
         return f"Secret {secret_name} does not exist."
+    
+    except Exception:
+        return "Invalid input. Input must have a minimum length of 1."

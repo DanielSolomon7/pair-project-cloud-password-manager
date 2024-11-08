@@ -8,9 +8,8 @@ import boto3
 
 
 def password_manager_func():
-    """
-    Purpose: Python script that users can run to use the application.
-    """
+    """ Purpose: Python script that users can run to use the application. """
+
     sm_client = boto3.client("secretsmanager")
     running = True
     while running:
@@ -20,17 +19,21 @@ def password_manager_func():
             user_id = input("\nUser Id: ")
             password = input("\nPassword:")
             print(store_secret(user_id, password, user_decision_identifier, sm_client))
-        if user_choice == "l":
-            print(list_sm_secrets( sm_client))
-        if user_choice == "r":
+        elif user_choice == "l":
+            print(list_sm_secrets(sm_client))
+        elif user_choice == "r":
             user_decision_identifier = input("\nPlease enter specified secret to retrieve here: ")
             print(retrieve_secret(user_decision_identifier, sm_client))
-        if user_choice == "d":
+        elif user_choice == "d":
             user_decision_identifier = input("\nPlease enter specified secret to delete here: ")
             print(delete_secret(user_decision_identifier, sm_client))
-        if user_choice == "x":
+        elif user_choice == "x":
             running = False
-            return print("\nThank you goodbye")
+            break
+        else:
+            print("\nInvalid input. Please try again...")
+
+    return print("\nThank you goodbye")
 
 
 password_manager_func()

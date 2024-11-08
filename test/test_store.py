@@ -50,3 +50,11 @@ class TestStore:
         expected = "User name already in use."
 
         assert response2 == expected
+
+    def test_function_handles_empty_input(self, secrets_manager_client):
+        test_id = ""
+        test_password = ""
+        test_identifier = ""
+        test_client = secrets_manager_client
+
+        assert store_secret(test_id, test_password, test_identifier, test_client) == "Invalid input. Input must have a minimum length of 1."

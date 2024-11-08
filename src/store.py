@@ -25,4 +25,7 @@ def store_secret(user_id, password, identifier, sm_client):
 
     except ClientError:
         return "User name already in use."
+    
+    except Exception:
+        return "Invalid input. Input must have a minimum length of 1."
 

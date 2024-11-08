@@ -5,6 +5,9 @@ from moto import mock_aws
 import pytest
 import boto3
 import os
+import unittest
+from unittest.mock import patch
+
 
 
 def aws_credentials():
@@ -22,12 +25,18 @@ def secrets_manager_client(aws_credentials):
 
 class TestPasswordManager:
 
-    def test_function_(self, secrets_manager_client):
-        pass
+    # @patch('builtins.input', return_value="e")
+    # def test_function_allows_user_to_enter_a_secret(self, secrets_manager_client):
+    #     result = password_manager_func()
+    #     expected = "Secrets stored in local file: secret_secrets.txt"
+    #     self.assertEqual(result, expected)
 
-    def test_function_(self, secrets_manager_client):
-        pass
+    def test_user_can_exit_function(self):
+        expected = print("\nThank you goodbye")
+        assert password_manager_func() == expected
 
-    def test_function_(self,  secrets_manager_client):
-        pass
+    def test_function_recognises_invalid_input(self, capsys):
+        password_manager_func()
+        captured = capsys.readouterr()
+        assert captured.out == "\nInvalid input. Please try again..."
 
