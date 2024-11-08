@@ -1,4 +1,3 @@
-from botocore.exceptions import ClientError
 
 
 def delete_secret(secret_name, sm_client):
@@ -18,8 +17,8 @@ def delete_secret(secret_name, sm_client):
     secret_names = [secret["Name"] for secret in list_of_secrets["SecretList"]]
 
     if secret_name in secret_names:
-        response = sm_client.delete_secret(SecretId=secret_name,
-                                             ForceDeleteWithoutRecovery=True)
+        sm_client.delete_secret(SecretId=secret_name,
+                                            ForceDeleteWithoutRecovery=True)
         return "Deleted"
 
     else:

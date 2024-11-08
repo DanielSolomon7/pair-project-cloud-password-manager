@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyopenssl --upgrade
           pip install -r requirements.txt
-        
+
       - name: Test with pytest
         run: |
           pytest
@@ -33,7 +33,7 @@ jobs:
         with:
           name: SuperTest-test-report
           path: report
-          
+
       - name: Upload Pytest report to GitHub
         uses: actions/upload-artifact@v3
         with:

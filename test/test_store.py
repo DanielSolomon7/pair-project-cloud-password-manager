@@ -45,7 +45,7 @@ class TestStore:
         test_password = "Password"
         test_identifier = "User Identifier"
         test_client = secrets_manager_client
-        response1 = store_secret(test_id, test_password, test_identifier, test_client)
+        store_secret(test_id, test_password, test_identifier, test_client)
         response2 = store_secret(test_id, test_password, test_identifier, test_client)
         expected = "User name already in use."
 
