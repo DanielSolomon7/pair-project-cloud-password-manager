@@ -3,7 +3,6 @@ from moto import mock_aws
 import pytest
 import boto3
 import os
-from pprint import pprint
 
 
 @pytest.fixture()

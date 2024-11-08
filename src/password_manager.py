@@ -1,9 +1,7 @@
-from botocore.exceptions import ClientError
 from src.retrieve import retrieve_secret
 from src.delete import delete_secret
 from src.list import list_sm_secrets
 from src.store import store_secret
-from pprint import pprint
 import boto3
 
 

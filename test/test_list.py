@@ -1,10 +1,8 @@
 from src.list import list_sm_secrets
-from src.store import store_secret
 from moto import mock_aws
 import pytest
 import boto3
 import os
-from pprint import pprint
 
 
 

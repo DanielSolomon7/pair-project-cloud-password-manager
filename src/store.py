@@ -1,6 +1,4 @@
-import boto3
 from botocore.exceptions import ClientError
-from pprint import pprint
 
 
 def store_secret(user_id, password, identifier, sm_client):

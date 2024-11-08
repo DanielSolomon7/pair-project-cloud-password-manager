@@ -1,7 +1,5 @@
-import boto3
-import json
 from botocore.exceptions import ClientError
-from pprint import pprint
+import json
 
 
 def retrieve_secret(secret_name, sm_client):

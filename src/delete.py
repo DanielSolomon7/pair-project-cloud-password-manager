@@ -1,7 +1,4 @@
-import boto3
-import json
 from botocore.exceptions import ClientError
-from pprint import pprint
 
 
 def delete_secret(secret_name, sm_client):
