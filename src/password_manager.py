@@ -1,7 +1,7 @@
-from src.retrieve import retrieve_secret
-from src.delete import delete_secret
-from src.list import list_sm_secrets
-from src.store import store_secret
+from retrieve import retrieve_secret
+from delete import delete_secret
+from list import list_sm_secrets
+from store import store_secret
 import boto3
 
 
